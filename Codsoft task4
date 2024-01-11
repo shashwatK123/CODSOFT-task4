@@ -1,0 +1,49 @@
+package demo;
+import java.util.Scanner;
+import java.util.Timer;
+
+public class quizapplicatonwithtimer {
+	static final int QUIZ_TIME_SECONDS = 60;
+	static int score = 0;
+
+	public static void main(String[] args) {
+		StartQuiz();
+	}
+
+	private static void StartQuiz() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Welcome to the Simple Quiz! You have "+QUIZ_TIME_SECONDS+ "seconds for each question.");
+		askQuestion("1)What is the Capital of Brazil?","a)Tokyo b)Brazilia c)Seoul", "b");
+	    askQuestion("2)Which Programming language is known for its 'Write Once, Run Anywhere' philosophy?", "a)Java b)Python c)C++","a");   
+	  displayResult();
+	}
+
+	private static void displayResult() {
+	}
+
+	private static void askQuestion(String question, String options, String correctAnswer) {
+		System.out.println(question);
+		System.out.println(options);
+		Timer timer = new Timer();
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Your answer:");
+		String userAnswer = scanner.nextLine().toLowerCase();
+		timer.cancel();
+		System.out.println("Time's up!");
+		if(userAnswer.equals(correctAnswer)) {
+		System.out.println("Correct!");
+		score++;
+		}
+		else {
+			System.out.println("Wrong! Correct answer:"+correctAnswer);
+		System.out.println("Moving to the next question");
+
+		}
+		System.out.println(); 
+		System.out.println("Quiz ended! Your final score is: "+score);
+		}	
+	}
+
+	
+
+	
